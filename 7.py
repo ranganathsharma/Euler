@@ -18,8 +18,9 @@ def prime_check(prime_number, prime_list):
 count = 6
 temp_prime = prime_list[-1] + 1
 
-for count <= 10000:
-    try prime_check(temp_prime, prime_list):
+while count <= 10000:
+    try:
+        prime_check(temp_prime, prime_list)
     except ValueError:
         temp_prime += 1
     except IndexError:
