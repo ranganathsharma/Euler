@@ -9,19 +9,23 @@ def prime_incr(prime_number):
 
 def prime_check(prime_number, prime_list):
     for i in range(len(prime_list)):
-        if temp_prime%prime_list[i] == 0:
-            raise ValueError
-    raise IndexError
-
+        if prime_number%prime_list[i] == 0:
+            #raise ValueError
+            return True
+    #raise IndexError
+    return False
 
 # Mainloop
 count = 6
 temp_prime = prime_list[-1] + 1
 
 while count <= 10000:
-    try:
-        prime_check(temp_prime, prime_list)
-    except ValueError:
-        temp_prime += 1
-    except IndexError:
+    a = prime_check(temp_prime, prime_list)
+    if a:
+        temp_prime = prime_incr(temp_prime)
+    else:
         prime_list.append(temp_prime)
+        #print('Next prime number is', temp_prime)
+        count += 1
+
+print(prime_list[10000])
